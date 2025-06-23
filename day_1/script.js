@@ -1,52 +1,32 @@
-function getNotes() {
-  const notes = localStorage.getItem("notes");
-  return notes ? JSON.parse(notes) : [];
-}
+function sendOTP() {
+  const phone = document.getElementById("phone").value.trim();
+  const msg = document.getElementById("msg");
 
-function saveNotes(notes) {
-  localStorage.setItem("notes", JSON.stringify(notes));
-}
-
-function addNote() {
-  const title = document.getElementById("title").value;
-  const desc = document.getElementById("desc").value;
-
-  if (title.trim() === "" || desc.trim() === "") {
-    alert("Please enter title and description!");
+  if (phone === "" || phone.length !== 10 || isNaN(phone)) {
+    alert("📵 Please enter a valid 10-digit phone number!");
+    msg.style.color = "red";
+    msg.innerText = "❌ Invalid phone number.";
     return;
   }
 
-  const notes = getNotes();
-  notes.push({ title, desc });
-  saveNotes(notes);
-  document.getElementById("title").value = "";
-  document.getElementById("desc").value = "";
-  showNotes();
+  generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+  console.log("🔐 OTP sent:", generatedOTP); // Simulate OTP
+
+  msg.style.color = "green";
+  msg.innerText = "✅ OTP sent successfully!";
+  document.getElementById("step1").style.display = "none";
+  document.getElementById("step2").style.display = "block";
+}
+const data = {
+  name: "Shivendra",
+  phonenumber: 6261647208,
+};
+
+localStorage.setItem("userData", JSON.stringify(data));
+
+function verifyOTP() {
+  
+  window.location.href = "profile.html"; 
 }
 
-function deleteNote(index) {
-  const notes = getNotes();
-  notes.splice(index, 1);
-  saveNotes(notes);
-  showNotes();
-}
 
-function showNotes() {
-  const notes = getNotes();
-  const notesDiv = document.getElementById("notes");
-  notesDiv.innerHTML = "";
-
-  notes.forEach((note, index) => {
-    const noteCard = document.createElement("div");
-    noteCard.className = "note-card";
-    noteCard.innerHTML = `
-      <h3>${note.title}</h3>
-      <p>${note.desc}</p>
-      <button onclick="deleteNote(${index})">Delete</button>
-    `;
-    notesDiv.appendChild(noteCard);
-  });
-}
-
-// Load notes on page load
-showNotes();

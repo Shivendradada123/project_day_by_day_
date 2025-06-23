@@ -1,67 +1,55 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f0f2f5;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  font-family: sans-serif;
+  background: #f3f3f3;
 }
 
-.container {
-  max-width: 600px;
-  margin: auto;
+.login-box {
+  width: 400px;
+  margin: 100px auto;
   background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
 
-.note-input input, .note-input textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
+input {
+  width: 95%;
+  padding: 12px;
+  margin: 12px 0;
+  font-size: 17px;
   border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-.note-input button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  background: #007bff;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.note-input button:hover {
-  background: #0056b3;
-}
-
-.note-card {
-  background: #fffbe6;
-  border: 1px solid #ffd700;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  position: relative;
-}
-
-.note-card h3 {
-  margin: 0;
-}
-
-.note-card p {
-  margin: 5px 0 10px;
-}
-
-.note-card button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: red;
+button {
+  padding: 12px;
+  width: 100%;
+  background: #28a745;
   color: white;
   border: none;
   border-radius: 6px;
+  font-size: 16px;
+  margin-top: 10px;
   cursor: pointer;
-  padding: 5px 10px;
+}
+
+button:hover {
+  background: #218838;
+}
+
+.back-btn {
+  background: #007bff;
+  margin-top: 10px;
+}
+
+.back-btn:hover {
+  background: #0056b3;
+}
+
+#msg {
+  margin-top: 15px;
+  font-weight: bold;
 }
